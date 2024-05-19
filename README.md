@@ -18,7 +18,7 @@ python RL_model_fitting.py --dataset "../data/Task 1 (B2018)/modeling_data_Task1
 
 * *Aggregate_Analyses.Rmd* runs the ANOVAs reported in the paper.
 
-2. The **hidden_states** folder contains code and results for the analysis of hidden state activations in Gemma-7b. <ins>These analyses were carried out on a cloud A100-80G GPU.</ins>
+2. The **hidden_states** folder contains code and results for the analysis of hidden state activations in Gemma-7b. <ins>These analyses were carried out on a cloud A100-80G GPU using transformers v4.38.2.</ins>
 
 * To reproduce the extraction of hidden activations, run the following from the command line (with condition = "standard" or "comparisons"):
 ```
