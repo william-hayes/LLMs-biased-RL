@@ -1,0 +1,250 @@
+---
+title: "Aggregate Analyses"
+author: ""
+date: ""
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(emmeans)
+library(effectsize)
+
+options(es.use_symbols = TRUE)
+```
+Load the data.
+
+```{r load-data}
+task1_data <- read.csv('../data/Task 1 (B2018)/modeling_data_Task1_wpreds.csv')
+task2_data <- read.csv('../data/Task 2 (V2023)/modeling_data_Task2_wpreds.csv')
+task3_data <- read.csv('../data/Task 3 (HW2023a)/modeling_data_Task3_wpreds.csv')
+task4_data <- read.csv('../data/Task 4 (BP2023)/modeling_data_Task4_wpreds.csv')
+task5_data <- read.csv('../data/Task 5 (HW2023b)/modeling_data_Task5_wpreds.csv')
+```
+
+```{r count-valid-observations}
+table(task1_data$choice_idx) # 76 invalid obs (0.42 %)
+table(task2_data$choice_idx) # 80 invalid obs (0.46 %)
+table(task3_data$choice_idx) # 22 invalid obs (0.10 %)
+table(task4_data$choice_idx) # 1204 invalid obs (4.78 %)
+table(task5_data$choice_idx) # 19 invalid obs (.09 %)
+```
+Training phase data.
+
+```{r training-phase-data}
+
+task1_training <- task1_data %>%
+  select(condition, model, id, trial, context, choice_idx, accuracy) %>%
+  mutate(task = 'B2018') %>%
+  filter(context < 99 & choice_idx != -99) 
+
+task2_training <- task2_data %>%
+  select(condition, model, id, trial, context, choice_idx, accuracy) %>%
+  mutate(task = 'V2023') %>%
+  filter(context < 99 & choice_idx != -99) 
+
+task3_training <- task3_data %>%
+  select(condition, model, id, trial, context, choice_idx, accuracy) %>%
+  mutate(task = 'HW2023a') %>%
+  filter(context < 99 & choice_idx != -99) 
+
+task4_training <- task4_data %>%
+  select(condition, model, id, trial, context, choice_idx, accuracy) %>%
+  mutate(task = 'BP2023') %>%
+  filter(context < 99 & choice_idx != -99) 
+
+task5_training <- task5_data %>%
+  select(condition, model, id, trial, context, choice_idx, accuracy) %>%
+  mutate(task = 'HW2023b') %>%
+  filter(context < 99 & choice_idx != -99) 
+
+training_df <- rbind(
+  task1_training,
+  task2_training,
+  task3_training, 
+  task4_training,
+  task5_training
+)
+
+# compute proportion of reward-maximizing choices for each experiment
+training_acc_df <- training_df %>%
+  group_by(task, model, condition, id) %>%
+  summarise(accuracy = mean(accuracy)) %>%
+  ungroup() %>%
+  mutate(task = factor(task, levels=c('B2018','V2023','HW2023a','BP2023','HW2023b')),
+         model = factor(model),
+         condition = factor(condition, levels=c('standard prompt','comparisons prompt')))
+
+```
+
+Task x LLM x Prompt ANOVA on training phase accuracy.
+
+```{r training-phase-ANOVA}
+
+aov1 <- aov(accuracy ~ task * model * condition, data=training_acc_df)
+summary(aov1)
+
+eta_squared(aov1)
+
+emm1_task <- emmeans(aov1, ~ task)
+emm1_task
+
+emm1_model <- emmeans(aov1, ~ model)
+emm1_model
+
+emm1_condition <- emmeans(aov1, ~ condition)
+emm1_condition
+
+emm1_FULL <- emmeans(aov1, ~ task * model * condition)
+contrast(emm1_FULL, method='pairwise', by=c('task', 'model'))
+
+```
+
+Transfer test accuracy data
+
+```{r transfer-test-accuracy-data}
+
+task1_transfer <- task1_data %>%
+  filter(context == 99, choice_idx != -99) %>%
+  select(condition, model, id, trial, left_index, right_index, left_REL, right_REL, choice_idx, accuracy) %>%
+  mutate(task = 'B2018')
+
+task2_transfer <- task2_data %>%
+  filter(context == 99, choice_idx != -99) %>%
+  select(condition, model, id, trial, left_index, right_index, left_REL, right_REL, choice_idx, accuracy) %>%
+  mutate(task = 'V2023')
+
+task3_transfer <- task3_data %>%
+  filter(context == 99, choice_idx != -99) %>%
+  select(condition, model, id, trial, left_index, right_index, left_REL, right_REL, choice_idx, accuracy) %>%
+  mutate(task = 'HW2023a')
+
+# remove trials where the absolute reward values for both options were equal
+task4_transfer <- task4_data %>%
+  filter(context == 99, left_ABS != right_ABS, choice_idx != -99) %>%
+  select(condition, model, id, trial, left_index, right_index, left_REL, right_REL, choice_idx, accuracy) %>%
+  mutate(task = 'BP2023')
+
+task5_transfer <- task5_data %>%
+  filter(context == 99, choice_idx != -99) %>%
+  select(condition, model, id, trial, left_index, right_index, left_REL, right_REL, choice_idx, accuracy) %>%
+  mutate(task = 'HW2023b')
+
+transfer_df <- rbind(
+  task1_transfer,
+  task2_transfer,
+  task3_transfer, 
+  task4_transfer,
+  task5_transfer
+)
+
+# compute proportion of reward-maximizing choices for each experiment
+transfer_acc_df <- transfer_df %>%
+  group_by(task, model, condition, id) %>%
+  summarise(accuracy = mean(accuracy)) %>%
+  ungroup() %>%
+  mutate(task = factor(task, levels=c('B2018','V2023','HW2023a','BP2023','HW2023b')),
+         model = factor(model),
+         condition = factor(condition, levels=c('standard prompt','comparisons prompt')))
+
+```
+
+Task x LLM x Prompt ANOVA on training phase accuracy.
+
+```{r transfer-test-ANOVA-accuracy}
+aov2 <- aov(accuracy ~ task * model * condition, data=transfer_acc_df)
+summary(aov2)
+
+eta_squared(aov2)
+
+emm2_task <- emmeans(aov2, ~ task)
+emm2_task
+
+emm2_model <- emmeans(aov2, ~ model)
+emm2_model
+
+emm2_condition <- emmeans(aov2, ~ condition)
+emm2_condition
+
+emm2_FULL <- emmeans(aov2, ~ task * model * condition)
+contrast(emm2_FULL, method='pairwise', by=c('task', 'model'))
+```
+
+Transfer test relative value bias data
+
+```{r transfer-test-bias-data}
+
+task1_relbias <- task1_data %>%
+  filter(context == 99, target_trial == 1, choice_idx != -99) %>%
+  select(condition, model, id, trial, left_index, right_index, left_REL, right_REL, choice_idx, accuracy, chose_REL) %>%
+  mutate(task = 'B2018')
+
+task2_relbias <- task2_data %>%
+  filter(context == 99, target_trial == 1, choice_idx != -99) %>%
+  select(condition, model, id, trial, left_index, right_index, left_REL, right_REL, choice_idx, accuracy, chose_REL) %>%
+  mutate(task = 'V2023')
+
+task3_relbias <- task3_data %>%
+  filter(context == 99, target_trial == 1, choice_idx != -99) %>%
+  select(condition, model, id, trial, left_index, right_index, left_REL, right_REL, choice_idx, accuracy, chose_REL) %>%
+  mutate(task = 'HW2023a')
+
+# remove trials where the relative values for both options were equal
+task4_relbias <- task4_data %>%
+  filter(context == 99, target_trial_1 == 1, choice_idx != -99) %>%
+  select(condition, model, id, trial, left_index, right_index, left_REL, right_REL, choice_idx, accuracy, chose_REL) %>%
+  mutate(task = 'BP2023')
+
+task5_relbias <- task5_data %>%
+  filter(context == 99, target_trial == 1, choice_idx != -99) %>%
+  select(condition, model, id, trial, left_index, right_index, left_REL, right_REL, choice_idx, accuracy, chose_REL) %>%
+  mutate(task = 'HW2023b')
+
+relbias_df <- rbind(
+  task1_relbias,
+  task2_relbias,
+  task3_relbias, 
+  task4_relbias,
+  task5_relbias
+)
+
+relbias_prop_df <- relbias_df %>%
+  group_by(task, model, condition, id) %>%
+  summarise(prop_REL = mean(chose_REL)) %>%
+  ungroup() %>%
+  mutate(task = factor(task, levels=c('B2018','V2023','HW2023a','BP2023','HW2023b')),
+         model = factor(model),
+         condition = factor(condition, levels=c('standard prompt','comparisons prompt')))
+
+```
+
+Task x LLM x Prompt ANOVA on proportion of higher relative value choices.
+
+```{r transfer-test-ANOVA-bias}
+aov3 <- aov(prop_REL ~ task * model * condition, data=relbias_prop_df)
+summary(aov3)
+
+eta_squared(aov3)
+
+emm3_task <- emmeans(aov3, ~ task)
+emm3_task
+
+emm3_model <- emmeans(aov3, ~ model)
+emm3_model
+
+emm3_condition <- emmeans(aov3, ~ condition)
+emm3_condition
+
+emm3_task_by_condition <- emmeans(aov3, ~ task * condition)
+emm3_task_by_condition
+
+emm3_FULL <- emmeans(aov3, ~ task * model * condition)
+contrast(emm3_FULL, method='pairwise', by=c('task', 'model'))
+```
+
+

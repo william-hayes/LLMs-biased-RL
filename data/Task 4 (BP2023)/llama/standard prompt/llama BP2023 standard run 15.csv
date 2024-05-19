@@ -1,0 +1,109 @@
+trial,context,L_index,M_index,H_index,L_option,M_option,H_option,left_index,middle_index,right_index,left_option,middle_option,right_option,choice,accuracy,chose_left,L_outcome,M_outcome,H_outcome
+0,0,0,-99,1,C,--,H,1,-99,0,H,--,C,"Slot machine H pays off $10 on average per play.
+Slot machine C pays off $5 on average per play.
+
+Which slot machine do you choose?",-99,-99,15,0,52
+1,3,7,8,9,D,E,B,9,8,7,B,E,D,I would choose slot machine B.,1,1,13,47,85
+2,2,5,-99,6,F,--,J,5,-99,6,F,--,J,I would choose slot machine F.,0,1,12,0,83
+3,2,5,-99,6,F,--,J,6,-99,5,J,--,F,I would choose slot machine J.,1,1,14,0,82
+4,0,0,-99,1,C,--,H,0,-99,1,C,--,H,I would choose slot machine H.,1,0,9,0,49
+5,2,5,-99,6,F,--,J,6,-99,5,J,--,F,I would choose slot machine J.,1,1,16,0,87
+6,0,0,-99,1,C,--,H,0,-99,1,C,--,H,I would choose slot machine H.,1,0,12,0,51
+7,3,7,8,9,D,E,B,7,9,8,D,B,E,I would choose slot machine B.,1,0,12,50,86
+8,1,2,3,4,G,I,A,3,2,4,I,G,A,I would choose slot machine G.,0,0,14,29,48
+9,0,0,-99,1,C,--,H,0,-99,1,C,--,H,I would choose slot machine H.,1,0,13,0,50
+10,3,7,8,9,D,E,B,9,7,8,B,D,E,I would choose slot machine B.,1,1,15,51,80
+11,0,0,-99,1,C,--,H,0,-99,1,C,--,H,I would choose slot machine H.,1,0,14,0,50
+12,3,7,8,9,D,E,B,8,9,7,E,B,D,I would choose slot machine B.,1,0,13,51,85
+13,2,5,-99,6,F,--,J,6,-99,5,J,--,F,I would choose slot machine J.,1,1,11,0,86
+14,0,0,-99,1,C,--,H,1,-99,0,H,--,C,I would choose slot machine H.,1,1,14,0,49
+15,1,2,3,4,G,I,A,4,3,2,A,I,G,I would choose slot machine G.,0,0,14,32,52
+16,3,7,8,9,D,E,B,8,7,9,E,D,B,I would choose slot machine E.,0,1,13,51,83
+17,3,7,8,9,D,E,B,8,7,9,E,D,B,I would choose slot machine E.,0,1,18,51,86
+18,1,2,3,4,G,I,A,4,2,3,A,G,I,I would choose slot machine G.,0,0,13,30,47
+19,0,0,-99,1,C,--,H,1,-99,0,H,--,C,I would choose slot machine H.,1,1,16,0,52
+20,2,5,-99,6,F,--,J,6,-99,5,J,--,F,I would choose slot machine J.,1,1,13,0,85
+21,3,7,8,9,D,E,B,8,9,7,E,B,D,I would choose slot machine E.,0,1,16,50,87
+22,1,2,3,4,G,I,A,4,2,3,A,G,I,I would choose slot machine G.,0,0,14,31,49
+23,2,5,-99,6,F,--,J,5,-99,6,F,--,J,I would choose slot machine F.,0,1,13,0,85
+24,0,0,-99,1,C,--,H,0,-99,1,C,--,H,I would choose slot machine H.,1,0,16,0,51
+25,2,5,-99,6,F,--,J,5,-99,6,F,--,J,I would choose slot machine F.,0,1,15,0,85
+26,1,2,3,4,G,I,A,3,2,4,I,G,A,Please respond with the letter of the slot machine you choose.,-99,-99,15,32,50
+27,1,2,3,4,G,I,A,2,3,4,G,I,A,Please respond with the number of the slot machine you choose.,-99,-99,14,35,51
+28,1,2,3,4,G,I,A,3,2,4,I,G,A,Please respond with the letter of the slot machine you choose.,-99,-99,14,32,50
+29,1,2,3,4,G,I,A,2,4,3,G,A,I,Please respond with the letter of the slot machine you choose.,-99,-99,14,30,49
+30,1,2,3,4,G,I,A,4,2,3,A,G,I,I would choose slot machine G.,0,0,19,30,47
+31,0,0,-99,1,C,--,H,1,-99,0,H,--,C,I would choose slot machine H.,1,1,13,0,51
+32,3,7,8,9,D,E,B,9,7,8,B,D,E,I would choose slot machine B.,1,1,10,49,87
+33,0,0,-99,1,C,--,H,0,-99,1,C,--,H,I would choose slot machine H.,1,0,14,0,49
+34,0,0,-99,1,C,--,H,1,-99,0,H,--,C,I would choose slot machine H.,1,1,9,0,53
+35,3,7,8,9,D,E,B,7,9,8,D,B,E,I would choose slot machine E.,0,0,13,46,84
+36,2,5,-99,6,F,--,J,6,-99,5,J,--,F,I would choose slot machine J.,1,1,14,0,83
+37,2,5,-99,6,F,--,J,6,-99,5,J,--,F,I would choose slot machine J.,1,1,11,0,88
+38,3,7,8,9,D,E,B,8,9,7,E,B,D,I would choose slot machine E.,0,1,13,47,84
+39,1,2,3,4,G,I,A,3,2,4,I,G,A,Please respond with the letter of the slot machine you choose.,-99,-99,12,30,52
+40,2,5,-99,6,F,--,J,5,-99,6,F,--,J,I would choose slot machine F.,0,1,13,0,82
+41,1,2,3,4,G,I,A,2,4,3,G,A,I,Please respond with the letter of the slot machine you choose.,-99,-99,15,37,50
+42,0,0,-99,1,C,--,H,1,-99,0,H,--,C,I would choose slot machine H.,1,1,14,0,50
+43,1,2,3,4,G,I,A,2,3,4,G,I,A,Please respond with the letter of the slot machine you choose.,-99,-99,12,35,48
+44,0,0,-99,1,C,--,H,0,-99,1,C,--,H,I would choose slot machine H.,1,0,15,0,51
+45,3,7,8,9,D,E,B,7,9,8,D,B,E,I would choose slot machine E.,0,0,13,49,86
+46,1,2,3,4,G,I,A,3,2,4,I,G,A,Please respond with the letter of the slot machine you choose.,-99,-99,16,35,50
+47,2,5,-99,6,F,--,J,5,-99,6,F,--,J,I would choose slot machine F.,0,1,14,0,87
+48,2,5,-99,6,F,--,J,6,-99,5,J,--,F,I would choose slot machine J.,1,1,14,0,85
+49,0,0,-99,1,C,--,H,0,-99,1,C,--,H,I would choose slot machine H.,1,0,12,0,48
+50,2,5,-99,6,F,--,J,5,-99,6,F,--,J,I would choose slot machine F.,0,1,14,0,89
+51,3,7,8,9,D,E,B,7,8,9,D,E,B,I would choose slot machine E.,0,0,13,51,85
+52,3,7,8,9,D,E,B,9,8,7,B,E,D,I would choose slot machine E.,0,0,13,52,85
+53,1,2,3,4,G,I,A,3,2,4,I,G,A,Please respond with the letter of the slot machine you choose.,-99,-99,13,27,49
+54,3,7,8,9,D,E,B,7,8,9,D,E,B,I would choose slot machine E.,0,0,13,48,84
+55,0,0,-99,1,C,--,H,0,-99,1,C,--,H,I would choose slot machine C.,0,1,16,0,50
+56,2,5,-99,6,F,--,J,6,-99,5,J,--,F,I would choose slot machine J.,1,1,11,0,86
+57,2,5,-99,6,F,--,J,5,-99,6,F,--,J,I would choose slot machine F.,0,1,17,0,81
+58,1,2,3,4,G,I,A,2,4,3,G,A,I,Please respond with the number of the slot machine you choose.,-99,-99,13,32,46
+59,3,7,8,9,D,E,B,8,9,7,E,B,D,I would choose slot machine E.,0,1,14,46,90
+0,99,0,-99,1,C,--,H,1,-99,0,H,--,C,I would choose slot machine H.,1,1,0,0,0
+1,99,0,-99,2,C,--,G,2,-99,0,G,--,C,I would choose slot machine G.,1,1,0,0,0
+2,99,0,-99,3,C,--,I,3,-99,0,I,--,C,I would choose slot machine I.,1,1,0,0,0
+3,99,0,-99,4,C,--,A,0,-99,4,C,--,A,I would choose slot machine C.,0,1,0,0,0
+4,99,0,-99,5,C,--,F,0,-99,5,C,--,F,I would choose slot machine C.,0,1,0,0,0
+5,99,0,-99,6,C,--,J,0,-99,6,C,--,J,I would choose slot machine C.,0,1,0,0,0
+6,99,0,-99,7,C,--,D,7,-99,0,D,--,C,I would choose slot machine D.,1,1,0,0,0
+7,99,0,-99,8,C,--,E,8,-99,0,E,--,C,I would choose slot machine E.,1,1,0,0,0
+8,99,0,-99,9,C,--,B,9,-99,0,B,--,C,I would choose slot machine B.,1,1,0,0,0
+9,99,1,-99,2,H,--,G,1,-99,2,H,--,G,I would choose slot machine H.,0,1,0,0,0
+10,99,1,-99,3,H,--,I,3,-99,1,I,--,H,I would choose slot machine H.,0,0,0,0,0
+11,99,1,-99,4,H,--,A,1,-99,4,H,--,A,I would choose slot machine H.,0,1,0,0,0
+12,99,1,-99,5,H,--,F,1,-99,5,H,--,F,I would choose slot machine H.,0,1,0,0,0
+13,99,1,-99,6,H,--,J,6,-99,1,J,--,H,I would choose slot machine J.,1,1,0,0,0
+14,99,1,-99,7,H,--,D,1,-99,7,H,--,D,I would choose slot machine H.,0,1,0,0,0
+15,99,1,-99,8,H,--,E,8,-99,1,E,--,H,I would choose slot machine E.,1,1,0,0,0
+16,99,1,-99,9,H,--,B,1,-99,9,H,--,B,I would choose slot machine H.,0,1,0,0,0
+17,99,2,-99,3,G,--,I,3,-99,2,I,--,G,I would choose slot machine G.,0,0,0,0,0
+18,99,2,-99,4,G,--,A,2,-99,4,G,--,A,I would choose slot machine G.,0,1,0,0,0
+19,99,2,-99,5,G,--,F,5,-99,2,F,--,G,I would choose slot machine F.,1,1,0,0,0
+20,99,2,-99,6,G,--,J,2,-99,6,G,--,J,I would choose slot machine G.,0,1,0,0,0
+21,99,2,-99,7,G,--,D,2,-99,7,G,--,D,I would choose slot machine G.,0,1,0,0,0
+22,99,2,-99,8,G,--,E,2,-99,8,G,--,E,I would choose slot machine G.,0,1,0,0,0
+23,99,2,-99,9,G,--,B,9,-99,2,B,--,G,I would choose slot machine B.,1,1,0,0,0
+24,99,3,-99,4,I,--,A,3,-99,4,I,--,A,I would choose slot machine A.,1,0,0,0,0
+25,99,3,-99,5,I,--,F,3,-99,5,I,--,F,I would choose slot machine I.,0,1,0,0,0
+26,99,3,-99,6,I,--,J,3,-99,6,I,--,J,I would choose slot machine J.,1,0,0,0,0
+27,99,3,-99,7,I,--,D,7,-99,3,D,--,I,I would choose slot machine D.,1,1,0,0,0
+28,99,3,-99,8,I,--,E,8,-99,3,E,--,I,I would choose slot machine E.,1,1,0,0,0
+29,99,3,-99,9,I,--,B,9,-99,3,B,--,I,I would choose slot machine B.,1,1,0,0,0
+30,99,4,-99,5,A,--,F,4,-99,5,A,--,F,I would choose slot machine F.,1,0,0,0,0
+31,99,4,-99,6,A,--,J,4,-99,6,A,--,J,I would choose slot machine J.,1,0,0,0,0
+32,99,4,-99,7,A,--,D,7,-99,4,D,--,A,I would choose slot machine D.,1,1,0,0,0
+33,99,4,-99,8,A,--,E,8,-99,4,E,--,A,I would choose slot machine E.,1,1,0,0,0
+34,99,4,-99,9,A,--,B,9,-99,4,B,--,A,I would choose slot machine B.,1,1,0,0,0
+35,99,5,-99,6,F,--,J,5,-99,6,F,--,J,I would choose slot machine F.,0,1,0,0,0
+36,99,5,-99,7,F,--,D,5,-99,7,F,--,D,I would choose slot machine F.,0,1,0,0,0
+37,99,5,-99,8,F,--,E,5,-99,8,F,--,E,I would choose slot machine E.,1,0,0,0,0
+38,99,5,-99,9,F,--,B,9,-99,5,B,--,F,I would choose slot machine B.,1,1,0,0,0
+39,99,6,-99,7,J,--,D,7,-99,6,D,--,J,I would choose slot machine D.,1,1,0,0,0
+40,99,6,-99,8,J,--,E,6,-99,8,J,--,E,I would choose slot machine J.,0,1,0,0,0
+41,99,6,-99,9,J,--,B,6,-99,9,J,--,B,I would choose slot machine J.,0,1,0,0,0
+42,99,7,-99,8,D,--,E,8,-99,7,E,--,D,I would choose slot machine E.,1,1,0,0,0
+43,99,7,-99,9,D,--,B,7,-99,9,D,--,B,I would choose slot machine B.,1,0,0,0,0
+44,99,8,-99,9,E,--,B,8,-99,9,E,--,B,I would choose slot machine E.,0,1,0,0,0
